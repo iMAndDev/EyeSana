@@ -1,4 +1,4 @@
-package ua.nure.maksymburym.eyesana.ui.theme
+package ua.nure.maksymburym.eyesana.ui.resources
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
