@@ -44,3 +44,25 @@ inline fun <reified T> String.fromJson(serializer: KSerializer<T>? = null) : T {
 }
 
 /* end */
+
+/***
+ * Returns time in `12:34:56` format.
+ * If some unit is absent (for instance, minutes), it doesn't shown (ex., `12:33` or `57`)
+ */
+fun Long.formatTime(): String {
+    val hour = (this / 3600000) % 24
+    val min = (this / 60000) % 60
+    val sec = (this / 1000) % 60
+
+    val formattedHour = hour.twoDigitString()
+    val formattedMin = min.twoDigitString()
+    val formattedSec = sec.twoDigitString()
+
+    return buildString {
+        append(if (formattedHour == "00") "" else "$formattedHour:")
+        append(if (formattedMin == "00") "" else "$formattedMin:")
+        append(formattedSec)
+    }
+}
+
+fun Long.twoDigitString() = if (this > 9) this else "0$this"

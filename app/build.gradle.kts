@@ -85,6 +85,7 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
     implementation(libs.bundles.navigation)
+    implementation(libs.constraintlayout.compose)
 
     /** Testing */
     testImplementation(libs.junit)

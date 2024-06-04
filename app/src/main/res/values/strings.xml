@@ -1,3 +1,28 @@
 <resources>
-    <string name="app_name">EyeSana</string>
+    <!-- Common -->
+    <string name="app_name" translatable="false">EyeSana</string>
+    <string name="stand_with_ukraine">Stand with 🇺🇦</string>
+    <string name="start">Start</string>
+    <!-- end -->
+
+    <!-- Left and Right -->
+    <string name="left_and_right">Left and Right</string>
+    <string name="left_and_right_desc">You need to move your eyes from left to right. Do it slowly for a minute.</string>
+
+    <!-- Closer-Further -->
+    <string name="closer_further">Closer-further</string>
+    <string name="closer_further_desc">Choose a point that is close to you and a point that is far away, maybe outside the window. Focus on them one by one for a minute.</string>
+
+    <!-- Curtains -->
+    <string name="curtains">Curtains</string>
+    <string name="curtains_desc">Blink quickly and easily for 2 minutes. Helps improve blood circulation</string>
+
+    <!-- Eight -->
+    <string name="eight">Eight</string>
+    <string name="eight_desc">Excellent relieves tension from the eye muscles. With your eyes open, draw a horizontal figure 8 in the air. Several times on one side and several times on the other</string>
+
+    <!-- Night -->
+    <string name="night">Night</string>
+    <string name="night_desc">Helps to rest the eyes and restore all eye systems. Close your eyelids and cover them with your palms for 5 minutes. Don\'t fall asleep during these one:)</string>
+
 </resources>

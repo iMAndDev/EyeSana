@@ -25,6 +25,10 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".ui.exercises.base.LeftRightExerciseActivity"
+            android:exported="false"
+            android:theme="@style/Theme.EyeSana"/>
     </application>
 
 </manifest>

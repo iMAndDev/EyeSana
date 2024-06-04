@@ -68,8 +68,6 @@ fun getColorScheme(
             else dynamicLightColorScheme(context)
         }
 
-//        isDarkTheme -> DarkColorScheme
-//        else -> LightColorScheme
         else -> MaterialTheme.colorScheme
     }
 }

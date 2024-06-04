@@ -27,7 +27,7 @@ fun BottomNavBar(
     navController: NavController,
 ) {
     BottomNavigation(
-        backgroundColor = getColorScheme().primaryContainer,
+        backgroundColor = getColorScheme().tertiaryContainer,
     ) {
         val navBackStackEntry by navController.currentBackStackEntryAsState()
         val currentDestination: NavDestination? = navBackStackEntry?.destination
@@ -50,14 +50,14 @@ fun BottomNavBar(
                     Icon(
                         imageVector = item.icon,
                         contentDescription = item.title,
-                        tint = getColorScheme().primary,
+                        tint = getColorScheme().onTertiaryContainer,
                         modifier = Modifier.size(24.dp),
                     )
                 },
                 label = {
                     Text(
                         text = item.title,
-                        color = getColorScheme().primary,
+                        color = getColorScheme().onTertiaryContainer,
                         textAlign = TextAlign.Center,
                         fontSize = 11.sp,
                     )
