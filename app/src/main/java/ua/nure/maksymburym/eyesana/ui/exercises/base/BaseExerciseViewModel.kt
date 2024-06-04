@@ -11,12 +11,16 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import ua.nure.maksymburym.eyesana.domain.TimerModel
 import ua.nure.maksymburym.eyesana.domain.TimerState
+import ua.nure.maksymburym.eyesana.storage.Prefs
+import ua.nure.maksymburym.eyesana.storage.PrefsKeys.EYE_ACUITY
 import ua.nure.maksymburym.eyesana.utils.Timer
 import ua.nure.maksymburym.eyesana.utils.formatTime
 import javax.inject.Inject
 
 @HiltViewModel
-open class BaseExerciseViewModel @Inject constructor() : ViewModel() {
+open class BaseExerciseViewModel @Inject constructor(
+    private val prefs: Prefs
+) : ViewModel() {
 
     private val _timerDataFlow = MutableStateFlow(
         TimerModel(timeUntilFinished = "", state = TimerState.IDLE)
@@ -48,6 +52,12 @@ open class BaseExerciseViewModel @Inject constructor() : ViewModel() {
                     onFinish = {
                         updateTimerData {
                             state = TimerState.FINISHED
+                        }
+                        with(prefs) {
+                            var rate = getFloat(EYE_ACUITY, 67f)
+                            rate += 10f
+                            if (rate > 100f) rate = 100f
+                            saveValue(EYE_ACUITY, rate)
                         }
                     }
                 )

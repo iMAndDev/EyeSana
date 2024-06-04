@@ -14,6 +14,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import dagger.hilt.android.AndroidEntryPoint
 import ua.nure.maksymburym.eyesana.R
 import ua.nure.maksymburym.eyesana.ui.base.BaseComposeActivity
 import ua.nure.maksymburym.eyesana.ui.dashboard.navDrawer.BottomNavItem
@@ -24,6 +25,7 @@ import ua.nure.maksymburym.eyesana.ui.profile.ProfileScreen
 import ua.nure.maksymburym.eyesana.ui.resources.EyeSanaTheme
 import ua.nure.maksymburym.eyesana.ui.resources.getColorScheme
 
+@AndroidEntryPoint
 class MainActivity : BaseComposeActivity() {
 
     @Composable

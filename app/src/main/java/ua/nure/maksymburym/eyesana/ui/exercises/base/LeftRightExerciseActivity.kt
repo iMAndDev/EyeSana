@@ -28,12 +28,14 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import ua.nure.maksymburym.eyesana.R
 import ua.nure.maksymburym.eyesana.domain.TimerModel
 import ua.nure.maksymburym.eyesana.domain.TimerState
 import ua.nure.maksymburym.eyesana.ui.resources.getColorScheme
 
+@AndroidEntryPoint
 class LeftRightExerciseActivity : BaseExerciseActivity() {
 
     override val viewModel: BaseExerciseViewModel by viewModels()

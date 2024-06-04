@@ -71,3 +71,5 @@ fun getColorScheme(
         else -> MaterialTheme.colorScheme
     }
 }
+
+fun getAppColors() = Colors
