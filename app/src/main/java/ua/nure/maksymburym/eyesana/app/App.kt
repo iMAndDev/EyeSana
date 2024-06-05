@@ -3,9 +3,11 @@ package ua.nure.maksymburym.eyesana.app
 import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
 import ua.nure.maksymburym.eyesana.BuildConfig
+import ua.nure.maksymburym.eyesana.domain.Themes
 import ua.nure.maksymburym.eyesana.storage.Prefs
 import ua.nure.maksymburym.eyesana.utils.LifecycleTracker
-import ua.nure.maksymburym.eyesana.utils.setAppTheme
+import ua.nure.maksymburym.eyesana.utils.SystemConfig
+import ua.nure.maksymburym.eyesana.utils.setLanguage
 import javax.inject.Inject
 
 @HiltAndroidApp
@@ -30,10 +32,13 @@ class App : BaseApp() {
     }
 
     private fun setTheme() {
-        setAppTheme(storage.getAppTheme())
-    }
+        val appLanguage = storage.getAppLang()
+        resources.setLanguage(appLanguage)
 
-    companion object {
-        fun getApplication() = BaseApp.getApplication() as App
+        SystemConfig.init(
+            theme = Themes.fromOrdinal(storage.getAppTheme()),
+            language = appLanguage,
+            resources = resources
+        )
     }
 }

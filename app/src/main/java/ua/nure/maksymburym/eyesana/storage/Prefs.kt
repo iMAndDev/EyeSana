@@ -1,6 +1,8 @@
 package ua.nure.maksymburym.eyesana.storage
 
 import android.content.SharedPreferences
+import ua.nure.maksymburym.eyesana.domain.Languages
+import ua.nure.maksymburym.eyesana.domain.Themes
 
 interface Prefs {
 
@@ -21,4 +23,10 @@ interface Prefs {
     fun remove(vararg keys: String)
 
     fun getAppTheme(): Int
+
+    fun saveAppTheme(theme: Themes)
+
+    fun getAppLang(): Languages
+
+    fun saveAppLanguage(lang: Languages)
 }

@@ -3,7 +3,13 @@
     <string name="app_name" translatable="false">EyeSana</string>
     <string name="stand_with_ukraine">Stand with 🇺🇦</string>
     <string name="start">Start</string>
-    <!-- end -->
+    <string name="cancel">Cancel</string>
+    <string name="exercise">Exercise</string>
+    <string name="acuity">Acuity</string>
+    <string name="profile">Profile</string>
+
+    <!-- Exercise tab -->
+    <string name="exercises_title">Exercises</string>
 
     <!-- Left and Right -->
     <string name="left_and_right">Left and Right</string>
@@ -25,4 +31,22 @@
     <string name="night">Night</string>
     <string name="night_desc">Helps to rest the eyes and restore all eye systems. Close your eyelids and cover them with your palms for 5 minutes. Don\'t fall asleep during these one:)</string>
 
+    <!-- Acuity tab -->
+    <string name="eye_acuity">Eye acuity</string>
+
+    <!-- Profile tab -->
+    <string name="your_profile">Your Profile</string>
+    <string name="theme">Theme</string>
+    <string name="choose_theme">Choose theme</string>
+    <string name="language">Language</string>
+    <string name="choose_language">Choose language</string>
+
+    <!-- Theme -->
+    <string name="theme_light">Light</string>
+    <string name="theme_dark">Dark</string>
+    <string name="system_default">System default</string>
+
+    <!-- Language -->
+    <string name="lang_english">English</string>
+    <string name="lang_ukrainian">Ukrainian</string>
 </resources>

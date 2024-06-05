@@ -9,6 +9,7 @@ object Colors {
     val pink80 = Color(0xFFEFB8C8)
     val surfacePrimary = Color(0xFFFFFBFE)
     val onSurfacePrimary = Color(0xFF1C1B1F)
+    val ripple = Color(0x0D000000)
 
     /** Dark colors */
     val purple40 = Color(0xFF6650a4)

@@ -10,7 +10,6 @@ import ua.nure.maksymburym.eyesana.ui.resources.EyeSanaTheme
 abstract class BaseComposeActivity : ComponentActivity() {
 
     protected open val viewModel: ViewModel? = null
-    private var backPressedAction: (() -> Unit)? = null
     @Composable
     abstract fun SetContent()
 

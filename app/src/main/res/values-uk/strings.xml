@@ -3,6 +3,13 @@
     <!-- Спільні -->
     <string name="stand_with_ukraine">Підтримуй 🇺🇦</string>
     <string name="start">Розпочати</string>
+    <string name="cancel">Відміна</string>
+    <string name="exercise">Вправи</string>
+    <string name="acuity">Гострота</string>
+    <string name="profile">Профіль</string>
+
+    <!-- Exercise tab -->
+    <string name="exercises_title">Вправи</string>
 
     <!-- Вліво та Вправо -->
     <string name="left_and_right">Вліво та Вправо</string>
@@ -24,4 +31,22 @@
     <string name="night">Ніч</string>
     <string name="night_desc">Допомагає відпочити органам зору та відновити усі системи ока. Виконання: закрийте повіки і накрийте їх долонями на 5 хвилин. Головне в цій вправі – не заснути:)</string>
 
+    <!-- Acuity tab -->
+    <string name="eye_acuity">Гострота зору</string>
+
+    <!-- Profile tab -->
+    <string name="your_profile">Твій профіль</string>
+    <string name="theme">Тема</string>
+    <string name="choose_theme">Оберіть тему</string>
+    <string name="language">Мова</string>
+    <string name="choose_language">Оберіть мову</string>
+
+    <!-- Теми -->
+    <string name="theme_light">Світла</string>
+    <string name="theme_dark">Темна</string>
+    <string name="system_default">Як у системі</string>
+
+    <!-- Мови -->
+    <string name="lang_english">Англійська</string>
+    <string name="lang_ukrainian">Українська</string>
 </resources>

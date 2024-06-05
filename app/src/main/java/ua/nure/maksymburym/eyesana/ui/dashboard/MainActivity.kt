@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -22,8 +21,8 @@ import ua.nure.maksymburym.eyesana.ui.base.kit.BottomNavBar
 import ua.nure.maksymburym.eyesana.ui.base.kit.TopBar
 import ua.nure.maksymburym.eyesana.ui.diary.DiaryScreen
 import ua.nure.maksymburym.eyesana.ui.profile.ProfileScreen
-import ua.nure.maksymburym.eyesana.ui.resources.EyeSanaTheme
 import ua.nure.maksymburym.eyesana.ui.resources.getColorScheme
+import ua.nure.maksymburym.eyesana.utils.getStringRes
 
 @AndroidEntryPoint
 class MainActivity : BaseComposeActivity() {
@@ -42,7 +41,7 @@ inline fun Dashboard(crossinline startActivityCallback: (Class<out ComponentActi
     Scaffold(
         topBar = {
             TopBar(
-                title = stringResource(id = R.string.app_name),
+                title = getStringRes(id = R.string.app_name),
                 backgroundColor = getColorScheme().secondaryContainer,
                 contentColor = getColorScheme().primary,
                 isStartNavIconVisible = false,
@@ -90,5 +89,5 @@ inline fun NavigationHost(
 @Preview(showSystemUi = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 fun DashboardPreview() {
-    EyeSanaTheme { Dashboard() }
+    Dashboard()
 }

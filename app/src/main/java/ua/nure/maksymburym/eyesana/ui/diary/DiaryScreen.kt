@@ -16,8 +16,10 @@ import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
 import androidx.hilt.navigation.compose.hiltViewModel
+import ua.nure.maksymburym.eyesana.R
 import ua.nure.maksymburym.eyesana.ui.base.kit.ChartCirclePie
 import ua.nure.maksymburym.eyesana.ui.resources.getColorScheme
+import ua.nure.maksymburym.eyesana.utils.getStringRes
 
 @Composable
 fun DiaryScreen(
@@ -34,7 +36,7 @@ fun DiaryScreen(
         val (title, chart) = createRefs()
         Text(
             color = getColorScheme().primary,
-            text = "Eye acuity",
+            text = getStringRes(id = R.string.eye_acuity),
             fontSize = 24.sp,
             modifier = Modifier
                 .padding(top = 30.dp)

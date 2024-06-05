@@ -17,7 +17,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -30,6 +29,7 @@ import ua.nure.maksymburym.eyesana.ui.base.BaseComposeActivity
 import ua.nure.maksymburym.eyesana.ui.base.kit.AppButton
 import ua.nure.maksymburym.eyesana.ui.base.kit.TopBar
 import ua.nure.maksymburym.eyesana.ui.resources.getColorScheme
+import ua.nure.maksymburym.eyesana.utils.getStringRes
 
 abstract class BaseExerciseActivity : BaseComposeActivity() {
 
@@ -88,7 +88,7 @@ abstract class BaseExerciseActivity : BaseComposeActivity() {
 
                 // Title
                 Text(
-                    text = stringResource(id = titleRes),
+                    text = getStringRes(id = titleRes),
                     color = getColorScheme().primary,
                     textAlign = TextAlign.Center,
                     fontSize = 21.sp,
@@ -102,7 +102,7 @@ abstract class BaseExerciseActivity : BaseComposeActivity() {
                 )
                 // Description
                 Text(
-                    text = stringResource(id = descriptionRes),
+                    text = getStringRes(id = descriptionRes),
                     color = getColorScheme().secondary,
                     fontSize = 14.sp,
                     modifier = Modifier
@@ -138,7 +138,7 @@ abstract class BaseExerciseActivity : BaseComposeActivity() {
                 )
 
                 AppButton(
-                    name = stringResource(id = R.string.start),
+                    name = getStringRes(id = R.string.start),
                     modifier = Modifier
                         .padding(bottom = 20.dp)
                         .constrainAs(btnDone) {

@@ -14,12 +14,12 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import ua.nure.maksymburym.eyesana.R
 import ua.nure.maksymburym.eyesana.ui.resources.getColorScheme
+import ua.nure.maksymburym.eyesana.utils.getStringRes
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -67,5 +67,5 @@ fun TopBar(
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 fun TopBarPreview() {
-    TopBar(title = stringResource(id = R.string.app_name))
+    TopBar(title = getStringRes(id = R.string.app_name))
 }

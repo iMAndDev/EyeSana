@@ -9,38 +9,28 @@ import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
-
-//private val DarkColorScheme = darkColorScheme(
-//    primary = Purple80,
-//    secondary = PurpleGrey80,
-//    tertiary = Pink80
-//)
-//
-//private val LightColorScheme = lightColorScheme(
-//    primary = Purple40,
-//    secondary = PurpleGrey40,
-//    tertiary = Pink40,
-//    background = SurfacePrimary,
-//    surface = SurfacePrimary,
-//    onPrimary = Color.White,
-//    onSecondary = Color.White,
-//    onTertiary = Color.White,
-//    onBackground = OnSurfacePrimary,
-//    onSurface = OnSurfacePrimary,
-//)
+import ua.nure.maksymburym.eyesana.domain.Themes
+import ua.nure.maksymburym.eyesana.utils.SystemConfig
 
 @Composable
 fun EyeSanaTheme(
-    isDarkTheme: Boolean = isSystemInDarkTheme(),
     isDynamicColor: Boolean = true, // Dynamic colors are available on A12+
     content: @Composable () -> Unit
 ) {
-    val colorScheme = getColorScheme(isDynamicColor, isDarkTheme)
+    val colorScheme = getColorScheme(isDynamicColor)
     val view = LocalView.current
+    val systemConfig by SystemConfig.systemConfig.collectAsState()
+    val currentTheme = systemConfig.appTheme
+    val isDarkTheme =
+        if (currentTheme == Themes.THEME_SYSTEM) isSystemInDarkTheme()
+        else currentTheme == Themes.THEME_DARK
+
     if (!view.isInEditMode) {
         SideEffect {
             val window = (view.context as Activity).window
@@ -58,9 +48,14 @@ fun EyeSanaTheme(
 
 @Composable
 fun getColorScheme(
-    isDarkTheme: Boolean = isSystemInDarkTheme(),
     isDynamicColor: Boolean = true,
 ): ColorScheme {
+    val systemConfig by SystemConfig.systemConfig.collectAsState()
+    val currentTheme = systemConfig.appTheme
+    val isDarkTheme =
+        if (currentTheme == Themes.THEME_SYSTEM) isSystemInDarkTheme()
+        else currentTheme == Themes.THEME_DARK
+
     return when {
         isDynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
             val context = LocalContext.current

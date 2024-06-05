@@ -20,6 +20,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import ua.nure.maksymburym.eyesana.ui.dashboard.navDrawer.BottomNavItem
 import ua.nure.maksymburym.eyesana.ui.resources.getColorScheme
+import ua.nure.maksymburym.eyesana.utils.getStringRes
 
 @Composable
 fun BottomNavBar(
@@ -49,14 +50,14 @@ fun BottomNavBar(
                 icon = {
                     Icon(
                         imageVector = item.icon,
-                        contentDescription = item.title,
+                        contentDescription = getStringRes(id = item.titleRes),
                         tint = getColorScheme().onTertiaryContainer,
                         modifier = Modifier.size(24.dp),
                     )
                 },
                 label = {
                     Text(
-                        text = item.title,
+                        text = getStringRes(id = item.titleRes),
                         color = getColorScheme().onTertiaryContainer,
                         textAlign = TextAlign.Center,
                         fontSize = 11.sp,

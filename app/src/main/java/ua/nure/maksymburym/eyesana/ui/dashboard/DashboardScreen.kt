@@ -25,15 +25,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ColorFilter
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import ua.nure.maksymburym.eyesana.R
 import ua.nure.maksymburym.eyesana.ui.exercises.base.BaseExerciseActivity
 import ua.nure.maksymburym.eyesana.ui.exercises.base.ExerciseType
 import ua.nure.maksymburym.eyesana.ui.exercises.base.LeftRightExerciseActivity
 import ua.nure.maksymburym.eyesana.ui.resources.getColorScheme
+import ua.nure.maksymburym.eyesana.utils.getStringRes
 
 @Composable
 inline fun DashboardScreen(
@@ -47,7 +48,7 @@ inline fun DashboardScreen(
             .padding(horizontal = 24.dp)
     ) {
         Text(
-            text = "Exercises",
+            text = getStringRes(id = R.string.exercises_title),
             color = getColorScheme().primary,
             textAlign = TextAlign.Center,
             fontSize = 24.sp,
@@ -95,7 +96,7 @@ inline fun ExerciseItem(
                 .padding(all = 12.dp)
         ) {
             Text(
-                text = stringResource(id = type.titleRes),
+                text = getStringRes(id = type.titleRes),
                 color = getColorScheme().secondary,
                 fontSize = 16.sp,
                 modifier = Modifier
