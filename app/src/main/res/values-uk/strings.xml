@@ -4,6 +4,7 @@
     <string name="stand_with_ukraine">Підтримуй 🇺🇦</string>
     <string name="start">Розпочати</string>
     <string name="cancel">Відміна</string>
+    <string name="common_continue">Продовжити</string>
     <string name="exercise">Вправи</string>
     <string name="acuity">Гострота</string>
     <string name="profile">Профіль</string>
@@ -49,4 +50,11 @@
     <!-- Мови -->
     <string name="lang_english">Англійська</string>
     <string name="lang_ukrainian">Українська</string>
+
+    <!-- Діалог підтвердження виходу -->
+    <string name="confirm_exit_title">Скасувати вправу?</string>
+    <string name="confirm_exit_subtitle">Якщо так, то незбережений прогрес буде втрачено. Продовжити?</string>
+
+    <!-- Екран успіху -->
+    <string name="success_cap">Чудово, так тримати😉</string>
 </resources>

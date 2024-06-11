@@ -8,12 +8,12 @@ object Timer {
 
     inline fun getInstance(
         millisTotal: Long,
-        crossinline onTick: (String) -> Unit,
+        crossinline onTick: (Long) -> Unit,
         crossinline onFinish: () -> Unit
     ): CountDownTimer {
         return object : CountDownTimer(millisTotal, TIMER_STEP) {
             override fun onTick(millisUntilFinished: Long) {
-                onTick(millisUntilFinished.formatTime())
+                onTick(millisUntilFinished)
             }
 
             override fun onFinish() {

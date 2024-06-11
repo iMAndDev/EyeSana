@@ -1,4 +1,4 @@
-package ua.nure.maksymburym.eyesana.ui.exercises.base
+package ua.nure.maksymburym.eyesana.ui.exercises.leftRight
 
 import android.content.res.Configuration
 import androidx.activity.viewModels
@@ -33,6 +33,8 @@ import kotlinx.coroutines.delay
 import ua.nure.maksymburym.eyesana.R
 import ua.nure.maksymburym.eyesana.domain.TimerModel
 import ua.nure.maksymburym.eyesana.domain.TimerState
+import ua.nure.maksymburym.eyesana.ui.exercises.base.BaseExerciseActivity
+import ua.nure.maksymburym.eyesana.ui.exercises.base.BaseExerciseViewModel
 import ua.nure.maksymburym.eyesana.ui.resources.getColorScheme
 
 @AndroidEntryPoint

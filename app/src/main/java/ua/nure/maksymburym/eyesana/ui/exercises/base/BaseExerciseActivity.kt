@@ -8,8 +8,11 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.systemBarsPadding
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -28,7 +31,9 @@ import ua.nure.maksymburym.eyesana.domain.TimerState
 import ua.nure.maksymburym.eyesana.ui.base.BaseComposeActivity
 import ua.nure.maksymburym.eyesana.ui.base.kit.AppButton
 import ua.nure.maksymburym.eyesana.ui.base.kit.TopBar
+import ua.nure.maksymburym.eyesana.ui.exercises.ExerciseSuccessScreen
 import ua.nure.maksymburym.eyesana.ui.resources.getColorScheme
+import ua.nure.maksymburym.eyesana.utils.formatTime
 import ua.nure.maksymburym.eyesana.utils.getStringRes
 
 abstract class BaseExerciseActivity : BaseComposeActivity() {
@@ -44,7 +49,15 @@ abstract class BaseExerciseActivity : BaseComposeActivity() {
     @Composable
     override fun SetContent() {
         val screenState by viewModel.timerDataFlow.collectAsState()
-        ExerciseScreen(screenState)
+        val exerciseState by viewModel.finishExerciseFlow.collectAsState()
+
+        if (exerciseState == null) ExerciseScreen(screenState)
+        else {
+            ExerciseSuccessScreen {
+                viewModel.proceedExerciseFinish()
+                finish()
+            }
+        }
     }
 
     @Composable
@@ -115,7 +128,7 @@ abstract class BaseExerciseActivity : BaseComposeActivity() {
                 )
                 // Time left
                 Text(
-                    text = model.timeUntilFinished,
+                    text = model.timeUntilFinished.formatTime(),
                     color = getColorScheme().primary,
                     textAlign = TextAlign.Center,
                     fontSize = 21.sp,
@@ -137,8 +150,23 @@ abstract class BaseExerciseActivity : BaseComposeActivity() {
                     }
                 )
 
+                val isThemeDialogVisible = remember { mutableStateOf(false) }
+                ConfirmExitAlertDialog(
+                    isThemeDialogVisible,
+                    onDialogShown = {
+                        viewModel.pauseExercise()
+                    },
+                    onContinue = {
+                        finish()
+                    },
+                    onDismiss = {
+                        viewModel.continueExercise()
+                    }
+                )
                 AppButton(
-                    name = getStringRes(id = R.string.start),
+                    name = getStringRes(
+                        id = if (model.state == TimerState.RUNNING) R.string.cancel else R.string.start
+                    ),
                     modifier = Modifier
                         .padding(bottom = 20.dp)
                         .constrainAs(btnDone) {
@@ -146,9 +174,51 @@ abstract class BaseExerciseActivity : BaseComposeActivity() {
                             width = Dimension.matchParent
                         }
                 ) {
-                    viewModel.setupExercise(minutes = exerciseMinutes)
+                    if (model.state == TimerState.RUNNING) isThemeDialogVisible.value = true
+                    else viewModel.setupExercise(minutes = exerciseMinutes)
                 }
             }
+        }
+    }
+
+    @Composable
+    private fun ConfirmExitAlertDialog(
+        isThemeDialogVisible: MutableState<Boolean>,
+        onDialogShown: () -> Unit = {},
+        onContinue: () -> Unit = {},
+        onDismiss: () -> Unit = {}
+    ) {
+        val onContinueAction = {
+            isThemeDialogVisible.value = false
+            onContinue()
+        }
+        val onDismissAction = {
+            isThemeDialogVisible.value = false
+            onDismiss()
+        }
+
+        if (isThemeDialogVisible.value) {
+            onDialogShown()
+            AlertDialog(
+                onDismissRequest = onDismissAction,
+                title = {
+                    Text(text = getStringRes(R.string.confirm_exit_title))
+                },
+                text = {
+                    Text(text = getStringRes(R.string.confirm_exit_subtitle))
+                },
+                confirmButton = {
+                    TextButton(onClick = onContinueAction) {
+                        Text(getStringRes(R.string.common_continue))
+                    }
+                },
+                dismissButton = {
+                    TextButton(onClick = onDismissAction) {
+                        Text(getStringRes(R.string.cancel))
+                    }
+                },
+                modifier = Modifier.padding(vertical = 5.dp)
+            )
         }
     }
 }

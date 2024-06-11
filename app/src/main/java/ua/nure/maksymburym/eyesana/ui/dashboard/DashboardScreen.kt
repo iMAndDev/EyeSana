@@ -32,7 +32,7 @@ import androidx.compose.ui.unit.sp
 import ua.nure.maksymburym.eyesana.R
 import ua.nure.maksymburym.eyesana.ui.exercises.base.BaseExerciseActivity
 import ua.nure.maksymburym.eyesana.ui.exercises.base.ExerciseType
-import ua.nure.maksymburym.eyesana.ui.exercises.base.LeftRightExerciseActivity
+import ua.nure.maksymburym.eyesana.ui.exercises.leftRight.LeftRightExerciseActivity
 import ua.nure.maksymburym.eyesana.ui.resources.getColorScheme
 import ua.nure.maksymburym.eyesana.utils.getStringRes
 
